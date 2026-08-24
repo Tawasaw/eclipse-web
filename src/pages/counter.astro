@@ -17,20 +17,27 @@ const startLabel = "April 29, 2026 at 9:45 PM PDT";
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://eclipse30618.com/counter/" />
-    <meta property="og:image" content="https://eclipse30618.com/eclipse-hero.png" />
-    <meta name="theme-color" content="#050609" />
+    <meta property="og:image" content="https://eclipse30618.com/eclipse-logo.png" />
+    <meta name="theme-color" content="#faf9f4" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#14120f" : "#faf9f4");
+      })();
+    </script>
   </head>
   <body>
-    <main class="counter-page">
-      <img class="counter-page__image" src="/eclipse-hero.png" alt="" />
-      <div class="counter-page__shade" aria-hidden="true"></div>
-
-      <section class="counter-panel" aria-labelledby="counter-title" data-start-time={startTime}>
-        <p class="counter-kicker">Eclipse 30618</p>
+    <main class="shell counter-page">
+      <section aria-labelledby="counter-title" data-start-time={startTime}>
+        <p class="kicker">Eclipse 30618</p>
         <h1 id="counter-title">Time Since Start</h1>
-        <p class="counter-start">Started {startLabel}</p>
+        <p class="text-muted">Started {startLabel}</p>
+        <hr class="hr" />
 
         <div class="counter-grid" aria-label="Elapsed time">
           <div class="counter-card">
