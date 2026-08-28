@@ -44,19 +44,16 @@ Always run `npm run build` before committing website changes.
 ## Repository Layout
 
 - `src/pages/index.astro`  
-  Homepage placeholder page.
-
-- `src/pages/counter.astro`  
-  Unlinked elapsed-time counter page at `/counter/`. This page will be removed later on.
+  Homepage and main single-page layout containing sections for Home, Team, Contact, and Learning Resources.
 
 - `src/styles/global.css`  
-  Shared styling for the homepage and counter page.
+  Shared styling for the site and its single-page sections.
 
 - `public/`  
   Static assets copied directly into the built site.
 
 - `public/eclipse-hero.png`  
-  Main background image used by both pages.
+  Main background image used by the site.
 
 - `public/favicon.svg`  
   Site favicon.
@@ -72,20 +69,11 @@ Always run `npm run build` before committing website changes.
 
 ## Pages
 
-Homepage:
+Main site:
 
 - Source: `src/pages/index.astro`
 - Route: `/`
-- Purpose: simple public placeholder for Eclipse 30618.
-
-Counter page:
-
-- Source: `src/pages/counter.astro`
-- Route: `/counter/`
-- Purpose: live elapsed-time counter. This page will be removed later.
-- Start timestamp: `2026-04-29T21:45:00-07:00`
-- Display label: `April 29, 2026 at 9:45 PM PDT`
-- This page is intentionally not linked from the homepage.
+- Purpose: public single-page site for Eclipse 30618.
 
 ## Styling Guidelines
 
