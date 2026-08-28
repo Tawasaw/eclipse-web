@@ -29,8 +29,8 @@
   color-scheme: light;
 }
 
-/* Dark theme — applied via data-theme, set by the inline script in each
-   page's <head> before first paint (see index.astro / counter.astro). */
+/* Dark theme — applied via data-theme, set by the inline script in index.astro
+   before first paint. */
 :root[data-theme="dark"] {
   --color-accent: #4cc4b6;
   --color-accent-700: #7ddcce;
@@ -592,103 +592,4 @@ section {
   body {
     transition: none !important;
   }
-}
-
-/* — standalone utility pages — no site-header, so their sections skip the
-   snap/min-height treatment sized around the header's scroll offset. */
-
-.counter-page,
-.resources-page {
-  padding-block: 72px;
-}
-
-.counter-page section,
-.resources-page section {
-  min-height: 0;
-  scroll-snap-align: none;
-}
-
-.back-link {
-  display: inline-block;
-  margin-bottom: 18px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text);
-}
-
-.back-link:hover {
-  color: var(--color-accent);
-}
-
-.resource-list {
-  display: grid;
-  gap: 0;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  border-top: 2px solid var(--color-divider);
-}
-
-.resource-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: clamp(12px, 4vw, 24px);
-  padding: clamp(14px, 4.5vw, 22px) 0;
-  border-bottom: 2px solid var(--color-divider);
-  color: var(--color-text);
-}
-
-.resource-row:hover {
-  color: var(--color-accent);
-}
-
-.resource-key {
-  flex: none;
-  min-width: clamp(70px, 20vw, 120px);
-  font-size: clamp(10px, 2.6vw, 12px);
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.resource-val {
-  font-family: var(--font-heading);
-  font-size: clamp(15px, 4.5vw, 24px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.counter-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  border-top: 2px solid var(--color-divider);
-  border-left: 2px solid var(--color-divider);
-}
-
-.counter-card {
-  padding: clamp(10px, 4vw, 26px) clamp(6px, 2.5vw, 22px) clamp(12px, 4.5vw, 30px);
-  border-right: 2px solid var(--color-divider);
-  border-bottom: 2px solid var(--color-divider);
-}
-
-.counter-card strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: clamp(22px, 9vw, 48px);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-}
-
-.counter-card span {
-  display: block;
-  margin-top: clamp(4px, 1.5vw, 10px);
-  font-size: clamp(8px, 2vw, 11px);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--color-accent-700);
 }

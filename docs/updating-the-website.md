@@ -28,9 +28,6 @@ Important files and folders:
 - `public/`  
   Static files such as images, icons, and the custom domain file.
 
-- `public/eclipse-hero.png`  
-  The current homepage background image.
-
 - `.github/workflows/deploy.yml`  
   The GitHub Actions deployment workflow. Do not edit this unless you are updating deployment settings.
 

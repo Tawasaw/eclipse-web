@@ -44,16 +44,13 @@ Always run `npm run build` before committing website changes.
 ## Repository Layout
 
 - `src/pages/index.astro`  
-  Homepage and main single-page layout containing sections for Home, Team, Contact, and Learning Resources.
+  Homepage and main single-page layout containing sections for Home, Team, Contact, and Donations.
 
 - `src/styles/global.css`  
   Shared styling for the site and its single-page sections.
 
 - `public/`  
   Static assets copied directly into the built site.
-
-- `public/eclipse-hero.png`  
-  Main background image used by the site.
 
 - `public/favicon.svg`  
   Site favicon.
@@ -81,7 +78,7 @@ Main site:
 - Shared CSS lives in `src/styles/global.css`.
 - Use responsive layout rules for mobile and desktop.
 - Do not add large new frameworks or UI libraries for simple pages.
-- Avoid changing homepage behavior when adding unlinked utility pages.
+- Keep the donation embed and its direct Zeffy fallback link functional.
 
 ## Deployment
 
