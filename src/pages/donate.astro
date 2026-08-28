@@ -1,0 +1,24 @@
+---
+const donationUrl =
+  "https://www.zeffy.com/en-US/donation-form/support-eclipse-30618-build-a-strong-ftc-biobuzz-robot";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0;url=${donationUrl}`} />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting to donations…</title>
+  </head>
+  <body>
+    <p>
+      Redirecting to the donation form…
+      <a href={donationUrl}>Continue to Zeffy</a>
+    </p>
+
+    <script is:inline define:vars={{ donationUrl }}>
+      window.location.replace(donationUrl);
+    </script>
+  </body>
+</html>
