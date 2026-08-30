@@ -150,6 +150,36 @@ a:hover {
   font-size: 18px;
 }
 
+.header-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.header-socials a {
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  border: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.header-socials a:hover,
+.header-socials a:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.header-socials svg {
+  width: 17px;
+  height: 17px;
+}
+
 .site-nav {
   display: flex;
   gap: 28px;
@@ -265,6 +295,37 @@ section {
 
 .hero h1 span {
   color: var(--color-accent);
+}
+
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 24px;
+  animation-delay: 0.12s;
+}
+
+.hero-socials a {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  border: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.hero-socials svg {
+  width: 20px;
+  height: 20px;
 }
 
 .hero-rule {
@@ -547,6 +608,14 @@ section {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
+  }
+
+  .brand {
+    flex-wrap: wrap;
+  }
+
+  .header-socials {
+    margin-left: 36px;
   }
 
   .site-nav {
