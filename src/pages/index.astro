@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { donationUrl, donationEmbedPath, donationEmbedUrl } from "../data/donation";
+import { donationUrl, donationEmbedUrl } from "../data/donation";
 
 const pageTitle = "Eclipse 30618";
 const pageDescription =
@@ -142,20 +142,13 @@ const contacts = [
           <a class="donate-fallback" href={donationUrl}>Open the full donation page</a>
         </div>
         <div class="donate-form" aria-label="Donation form">
-          <div data-zeffy-embed data-form-url={donationEmbedPath}></div>
-          <div data-zeffy-embed-fallback style="display: none">
-            <div class="donate-iframe-wrap">
-              <iframe
-                title="Donation form powered by Zeffy"
-                data-zeffy-embed-src={donationEmbedUrl}
-                allowpaymentrequest
-                allowTransparency="true"></iframe>
-            </div>
+          <div class="donate-iframe-wrap">
+            <iframe
+              title="Donation form powered by Zeffy"
+              src={donationEmbedUrl}
+              allowpaymentrequest
+              allowTransparency="true"></iframe>
           </div>
-          <script
-            is:inline
-            src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
-            onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function (el) { el.style.display = 'block'; el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function (frame) { frame.src = frame.getAttribute('data-zeffy-embed-src'); }); });"></script>
         </div>
       </section>
 
