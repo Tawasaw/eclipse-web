@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { donationUrl, donationEmbedPath, donationEmbedUrl } from "../data/donation";
 
 const pageTitle = "Eclipse 30618";
 const pageDescription =
@@ -78,7 +79,7 @@ const contacts = [
             <a href="#home">HOME</a>
             <a href="#team">TEAM</a>
             <a href="#contact">CONTACT</a>
-            <a href="#donate">DONATE</a>
+            <a href={donationUrl}>DONATE</a>
           </nav>
           <button id="theme-toggle" class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Toggle dark mode">
             <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -138,15 +139,15 @@ const contacts = [
             Your support helps our team build, compete, and keep learning through
             robotics. Every contribution makes a difference.
           </p>
-          <a class="donate-fallback" href="https://www.zeffy.com/en-US/donation-form/support-eclipse-30618-build-a-strong-ftc-biobuzz-robot">Open the full donation page</a>
+          <a class="donate-fallback" href={donationUrl}>Open the full donation page</a>
         </div>
         <div class="donate-form" aria-label="Donation form">
-          <div data-zeffy-embed data-form-url="/embed/donation-form/support-eclipse-30618-build-a-strong-ftc-biobuzz-robot"></div>
+          <div data-zeffy-embed data-form-url={donationEmbedPath}></div>
           <div data-zeffy-embed-fallback style="display: none">
             <div class="donate-iframe-wrap">
               <iframe
                 title="Donation form powered by Zeffy"
-                data-zeffy-embed-src="https://www.zeffy.com/en-US/peer-to-peer/support-eclipse-30618-build-a-strong-ftc-biobuzz-robot-2?donate=true"
+                data-zeffy-embed-src={donationEmbedUrl}
                 allowpaymentrequest
                 allowTransparency="true"></iframe>
             </div>
