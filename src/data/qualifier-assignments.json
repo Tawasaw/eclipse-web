@@ -1,0 +1,2426 @@
+{
+  "season": "BIOBUZZ 2026–27",
+  "updatedAt": "2026-11-03T19:58:29.178004+00:00",
+  "source": "https://www.norcalftc.org/norcal-ftc-team-list-new/",
+  "teams": [
+    {
+      "number": 524,
+      "name": "Boss Bots",
+      "city": "Moraga",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 596,
+      "name": "SpectreBots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 3470,
+      "name": "The Patriots",
+      "city": "Brentwood",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 3791,
+      "name": "Ziptiez",
+      "city": "Daly City",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 4345,
+      "name": "Aragon Robotics",
+      "city": "San Mateo",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 4475,
+      "name": "Purple Reign",
+      "city": "Redwood City",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 4943,
+      "name": "RoboFusion",
+      "city": "Sacramento",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 4998,
+      "name": "SPQR - Senātus Populusque Rōboticus",
+      "city": "Walnut Creek",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 5206,
+      "name": "The Knights of Ni",
+      "city": "Stanford",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 5214,
+      "name": "Helios-5214",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 5773,
+      "name": "Ink and Metal",
+      "city": "Fremont",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 6165,
+      "name": "MSET CuttleFish",
+      "city": "Saratoga",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 6286,
+      "name": "Falcon Hi Flyers",
+      "city": "Sacramento",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 6949,
+      "name": "Einstein Eagles",
+      "city": "Sacramento",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 7175,
+      "name": "Walbots",
+      "city": "Mountain View",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 7303,
+      "name": "RoboAvatars",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 7390,
+      "name": "MSET JellyFish",
+      "city": "Saratoga",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 7593,
+      "name": "TigerBots",
+      "city": "Belmont",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 7641,
+      "name": "MSET BettaFish",
+      "city": "Saratoga",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 7854,
+      "name": "MidKnight Madness",
+      "city": "Sunnyvale",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 8367,
+      "name": "ACME Robotics",
+      "city": "Grass Valley",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 8375,
+      "name": "Vulcan Robotics",
+      "city": "San Mateo",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 8381,
+      "name": "M",
+      "city": "San Mateo",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 8404,
+      "name": "Quixilver",
+      "city": "San Jose",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 8577,
+      "name": "Robocats",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 8872,
+      "name": "Robopocalypse",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 9448,
+      "name": "Wolves",
+      "city": "San Francisco",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 9614,
+      "name": "Hyperion",
+      "city": "Fremont",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 9657,
+      "name": "Athena Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 9784,
+      "name": "Dry Ice",
+      "city": "Belmont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 10023,
+      "name": "Enter Name Here",
+      "city": "Atherton",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 11311,
+      "name": "Paragon",
+      "city": "San Jose",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 11920,
+      "name": "QLS RaD Team",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 12516,
+      "name": "ONWARD",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 12635,
+      "name": "Kuriosity Robotics",
+      "city": "Palo Alto",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 12869,
+      "name": "Voyager 6+",
+      "city": "San Ramon",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 13050,
+      "name": "SharkBytes",
+      "city": "Hillsborough",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13190,
+      "name": "Roblivion",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 13216,
+      "name": "Deja Vu",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13217,
+      "name": "Codo Dragons",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13219,
+      "name": "Synthesis",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13223,
+      "name": "Erudite",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13274,
+      "name": "Longhorn Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13356,
+      "name": "RoboForce",
+      "city": "Fremont",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 13981,
+      "name": "QUACK",
+      "city": "Atherton",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 14162,
+      "name": "Bots and Bytes",
+      "city": "Fremont",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 14259,
+      "name": "TURBΩ V8",
+      "city": "Pleasanton",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 14323,
+      "name": "Half-Wit Hatchlings",
+      "city": "Clovis",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 14417,
+      "name": "Westmoor Robotics",
+      "city": "Daly City",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 14493,
+      "name": "CometBoTs",
+      "city": "Santa Rosa",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 14525,
+      "name": "TerraBats",
+      "city": "San Jose",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 14770,
+      "name": "Control+Q",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 15034,
+      "name": "Team HotsBOTS",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 15385,
+      "name": "MidKnight Mayhem",
+      "city": "Sunnyvale",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 16026,
+      "name": "Alphabots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 16236,
+      "name": "Juice",
+      "city": "Folsom",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 16247,
+      "name": "Thor Bots",
+      "city": "Atwater",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 16278,
+      "name": "Error 404 - Team Not Found",
+      "city": "Piedmont",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 16481,
+      "name": "Robo Racers",
+      "city": "Dublin",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 16532,
+      "name": "Sparkbots",
+      "city": "Sunnyvale",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 16533,
+      "name": "Infernobots",
+      "city": "Sunnyvale",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 16688,
+      "name": "Wolfbotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 16886,
+      "name": "Who charged the battery?",
+      "city": "Atherton",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 16887,
+      "name": "What Goes Here?",
+      "city": "Atherton",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 17094,
+      "name": "E.G.G.",
+      "city": "Clovis",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 18134,
+      "name": "Short Circuits",
+      "city": "Piedmont",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 18233,
+      "name": "Mercy Mechs",
+      "city": "Burlingame",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 18271,
+      "name": "RoBawks",
+      "city": "Berkeley",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 18340,
+      "name": "Polaris Robotics",
+      "city": "Fremont",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 18715,
+      "name": "Artemis",
+      "city": "San Jose",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19505,
+      "name": "TerraRise",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19514,
+      "name": "Oakland High School",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19639,
+      "name": "Alphabots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19655,
+      "name": "Cognition",
+      "city": "Rancho Cordova",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19752,
+      "name": "Mack Attack",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19819,
+      "name": "AstroBruins",
+      "city": "Sunnyvale",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19862,
+      "name": "Mecha Mantises",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 19896,
+      "name": "Measure Once Cut Twice",
+      "city": "Atherton",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 20163,
+      "name": "Metal Maniacs",
+      "city": "Folsom",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 20367,
+      "name": "RMS OverDrive",
+      "city": "Saratoga",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 20370,
+      "name": "RMS Phoenix 20370",
+      "city": "Saratoga",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 20373,
+      "name": "RMS Chimera",
+      "city": "Saratoga",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 20405,
+      "name": "RMS Dragons",
+      "city": "Saratoga",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 20791,
+      "name": "Kronos",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 21027,
+      "name": "AHS Robotics",
+      "city": "Martinez",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 21227,
+      "name": "Legend",
+      "city": "Fremont",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 21316,
+      "name": "Team Alpha",
+      "city": "Fremont",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 21402,
+      "name": "Clankers",
+      "city": "Piedmont",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 21419,
+      "name": "Circuit Breakers",
+      "city": "Piedmont",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 21454,
+      "name": "GalaxyBots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 21463,
+      "name": "Delta Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 21776,
+      "name": "TechnoCali",
+      "city": "Orinda",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 21781,
+      "name": "Pyra Lions",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 21925,
+      "name": "The Dragons!",
+      "city": "Belvedere Tiburon",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 21964,
+      "name": "The Reavers",
+      "city": "Sacramento",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 22047,
+      "name": "The Tell-Tale Parts",
+      "city": "Alameda",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 22100,
+      "name": "Maximum Overdrive",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 22297,
+      "name": "InfiniBots",
+      "city": "Fremont",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 22904,
+      "name": "CCPA Claw Compactor FTC 22904",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 22964,
+      "name": "Skyline High School",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 22994,
+      "name": "MateoBotics",
+      "city": "San Mateo",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23157,
+      "name": "Wolverine",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23212,
+      "name": "Dublin Robotics Cybirds",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 23222,
+      "name": "Cheesy Chips",
+      "city": "San Jose",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23224,
+      "name": "Cheesy Bytes",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23229,
+      "name": "Cheesy Strings",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 23230,
+      "name": "Cheesy Wheels",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 23279,
+      "name": "Turbotrons",
+      "city": "Pleasanton",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 23287,
+      "name": "SciRavens",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 23292,
+      "name": "SuperPowered Jalapenos",
+      "city": "Sunnyvale",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 23346,
+      "name": "Kalipso Robotics",
+      "city": "Palo Alto",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23460,
+      "name": "Cyber Sparks",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 23543,
+      "name": "The Architects",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 23586,
+      "name": "Bacon Bots",
+      "city": "Portola Valley",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23641,
+      "name": "Cuberobot",
+      "city": "Palo Alto",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23642,
+      "name": "Qbit",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 23808,
+      "name": "Innovix",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 23930,
+      "name": "Iron Isopods",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 24105,
+      "name": "Lake Robotics",
+      "city": "Upper Lake",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 24123,
+      "name": "Hoot and Compute",
+      "city": "Sacramento",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 24381,
+      "name": "CyberDogz from Oakland Tech",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 24409,
+      "name": "Cherry Bombs",
+      "city": "San Bruno",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 24610,
+      "name": "Raspberry Pilots",
+      "city": "Alameda",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 24689,
+      "name": "Acabots",
+      "city": "Lafayette",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 25246,
+      "name": "UPA Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 25610,
+      "name": "Neodymium Zenith",
+      "city": "Saratoga",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 25626,
+      "name": "CouGears",
+      "city": "Clovis",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 25627,
+      "name": "Robowarriors",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 25667,
+      "name": "Leviathan Robotics",
+      "city": "Saratoga",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 25690,
+      "name": "Evergreen Tech-a-Trons",
+      "city": "San Jose",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 25725,
+      "name": "Raptor Force Engineering 25725",
+      "city": "Lodi",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 25742,
+      "name": "TechTalons",
+      "city": "Folsom",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 25810,
+      "name": "Cerberus",
+      "city": "Pleasanton",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 25894,
+      "name": "Scarlet Serpents",
+      "city": "Union City",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26026,
+      "name": "Coastside Circuits",
+      "city": "Half Moon Bay",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 26076,
+      "name": "Titan Robotics - Scions",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 26106,
+      "name": "Emberbots",
+      "city": "Sunnyvale",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 26114,
+      "name": "Christopher High Robotics",
+      "city": "Gilroy",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26121,
+      "name": "Metal Benders",
+      "city": "Sacramento",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26282,
+      "name": "MiniRex",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 26284,
+      "name": "Cybercougars",
+      "city": "Clovis",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 26287,
+      "name": "Cyber Wizards",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 26288,
+      "name": "Eagle Vision",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 26340,
+      "name": "CyberSharks",
+      "city": "Pacifica",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 26419,
+      "name": "CybeRavens",
+      "city": "Santa Clara",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26586,
+      "name": "The Argobots",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26713,
+      "name": "RRR Roburritos",
+      "city": "Lathrop",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26890,
+      "name": "Cold",
+      "city": "Los Gatos",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 26891,
+      "name": "Tech Titans",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 27081,
+      "name": "OverDrive",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 27090,
+      "name": "QuantaMania",
+      "city": "Mountain View",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 27417,
+      "name": "Titan Robotics - Neophytes",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 27479,
+      "name": "NO esc",
+      "city": "San Jose",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 27497,
+      "name": "Poseidon",
+      "city": "San Jose",
+      "events": [
+        "FMT_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 27669,
+      "name": "Milpitas Xtreme Robotics",
+      "city": "Milpitas",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 27869,
+      "name": "SJ Bees",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 28118,
+      "name": "Robo Stallions",
+      "city": "Tracy",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 28251,
+      "name": "Sharkbytes II",
+      "city": "Burlingame",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 28526,
+      "name": "Fremont Fighters",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 29619,
+      "name": "Axiom Robotics",
+      "city": "Livermore",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30449,
+      "name": "RoboRoar",
+      "city": "Cupertino",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 30450,
+      "name": "Sharp Face Robotics",
+      "city": "Dublin",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30467,
+      "name": "Code Crackers",
+      "city": "Santa Clara",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30473,
+      "name": "Duck",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 30474,
+      "name": "reVolters",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 30507,
+      "name": "Helix Robotics",
+      "city": "Fremont",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30508,
+      "name": "Robostangs",
+      "city": "Santa Clara",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 30521,
+      "name": "Botcats",
+      "city": "San Jose",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30541,
+      "name": "Electrobots",
+      "city": "Santa Clara",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30569,
+      "name": "Qtech",
+      "city": "san jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30592,
+      "name": "Little Potato",
+      "city": "Fremont",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30594,
+      "name": "Owls",
+      "city": "Danville",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 30618,
+      "name": "Eclipse",
+      "city": "San Jose",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30619,
+      "name": "Mars Rovers",
+      "city": "San Jose",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30688,
+      "name": "Brickbots",
+      "city": "Fremont",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30695,
+      "name": "Ihsan Innovators",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30735,
+      "name": "Baybots",
+      "city": "Sunnyvale",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 30772,
+      "name": "Ursa Major",
+      "city": "Folsom",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 30804,
+      "name": "Universal Motor Works",
+      "city": "Pleasanton",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31011,
+      "name": "Itkan Sequoias",
+      "city": "Visalia",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 31031,
+      "name": "Eggs and Bacon",
+      "city": "Healdsburg",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 31064,
+      "name": "Take 3",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 31072,
+      "name": "Lumos",
+      "city": "San Mateo",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 31131,
+      "name": "Electra Lions",
+      "city": "San Jose",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31172,
+      "name": "Crescent Valley P.A.W.",
+      "city": "Visalia",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 31176,
+      "name": "Aspen Ridge Gear Heads",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 31178,
+      "name": "FrostByte",
+      "city": "Tulare",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 31263,
+      "name": "Olympians",
+      "city": "Santa Clara",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31554,
+      "name": "Panthers",
+      "city": "San Jose",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31579,
+      "name": "Exodius",
+      "city": "Fremont",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31616,
+      "name": "404 Not Found",
+      "city": "Santa Rosa",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 31782,
+      "name": "TechMasters",
+      "city": "Folsom",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31785,
+      "name": "Lycoris",
+      "city": "San Jose",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31788,
+      "name": "javaJuice",
+      "city": "Los Gatos",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31798,
+      "name": "YB Warriors",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31863,
+      "name": "The Placeholders",
+      "city": "San Carlos",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31902,
+      "name": "FrostByte",
+      "city": "Folsom",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 31921,
+      "name": "Botzilla",
+      "city": "Cupertino",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 32098,
+      "name": "Robo Raptors",
+      "city": "Pleasanton",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 32130,
+      "name": "Aureoboros",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 32157,
+      "name": "Lotus Logic",
+      "city": "LATHROP",
+      "events": [
+        "FMT_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 32245,
+      "name": "Broken Breadboards",
+      "city": "Fresno",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 32340,
+      "name": "Loading...",
+      "city": "San Ramon",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 32428,
+      "name": "Lightning Machines",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 32588,
+      "name": "Cyber Tigers",
+      "city": "Arcata",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 32646,
+      "name": "Spark Motors",
+      "city": "Cupertino",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 32678,
+      "name": "Sentinels",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 32798,
+      "name": "Summit Robotics",
+      "city": "Mountain House",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 32820,
+      "name": "Electi Robotics",
+      "city": "American Canyon",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 33498,
+      "name": "Impact Drivers",
+      "city": "Fremont",
+      "events": [
+        "FMT_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 35719,
+      "name": "The Traffic Cones",
+      "city": "Los Gatos",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 35758,
+      "name": "Toasted Tech",
+      "city": "Morgan Hill",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 35788,
+      "name": "Cycloidals",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 35821,
+      "name": "Overcharged Ions",
+      "city": "Livermore",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 35831,
+      "name": "Down-A-Creek Robotics",
+      "city": "Piedmont",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 35888,
+      "name": "Battery Drainers",
+      "city": "Palo Alto",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 35995,
+      "name": "TerraBlaze",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36029,
+      "name": "CreaTech",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 36099,
+      "name": "Leviticus",
+      "city": "Cupertino",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36120,
+      "name": "Banana Bots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36121,
+      "name": "Organized Chaos",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 36397,
+      "name": "Variable Velocity !",
+      "city": "Fremont",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36398,
+      "name": "BAYES Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 36417,
+      "name": "Nameless Robotics",
+      "city": "Fremont",
+      "events": [
+        "SJ_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36420,
+      "name": "AxoBotls",
+      "city": "Lathrop",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 36424,
+      "name": "Underengineered Toasters",
+      "city": "Danville",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36529,
+      "name": "Nova Lions",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_SB"
+      ]
+    },
+    {
+      "number": 36572,
+      "name": "Crosswired 2.0",
+      "city": "Modesto",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 36602,
+      "name": "Bot Force",
+      "city": "Mountain View",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 36674,
+      "name": "Apex Robotics",
+      "city": "Tracy",
+      "events": [],
+      "unmappedEvents": [
+        "TPS_4"
+      ]
+    },
+    {
+      "number": 36705,
+      "name": "Dark Force Robotics",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 36721,
+      "name": "Team Janitors",
+      "city": "Pleasanton",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 36739,
+      "name": "RoboMavericks",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 36867,
+      "name": "Paradise Adventist Robotics",
+      "city": "Paradise",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 36871,
+      "name": "Team Jupiter",
+      "city": "Santa Clara",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37055,
+      "name": "Supernova",
+      "city": "San Jose",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37100,
+      "name": "Liberty1Robotics",
+      "city": "Brentwood",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37163,
+      "name": "Orbital Escape",
+      "city": "Fremont",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37165,
+      "name": "Mechatronic Mustangs",
+      "city": "Livermore",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37168,
+      "name": "Artemis Robotics",
+      "city": "Saratoga",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37182,
+      "name": "SURF",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 37259,
+      "name": "Bacon.",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37260,
+      "name": "Chips’n Salsa",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37261,
+      "name": "FTC NewTeam Ewing",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37262,
+      "name": "Rockin Robos",
+      "city": "Rocklin",
+      "events": [
+        "TPS_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37263,
+      "name": "Steel Soldiers",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37264,
+      "name": "Ctrl-Alt-Defeat! (FTC)",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37265,
+      "name": "FTC NewTeam Spivak",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37266,
+      "name": "37266 - The Hive Minds",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": [
+        "League_EBH"
+      ]
+    },
+    {
+      "number": 37313,
+      "name": "Fallon Mustangs",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": [
+        "League_EB"
+      ]
+    },
+    {
+      "number": 37338,
+      "name": "The Wildcats",
+      "city": "San Ramon",
+      "events": [],
+      "unmappedEvents": [
+        "BRK"
+      ]
+    },
+    {
+      "number": 37350,
+      "name": "Blue Brickbots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37354,
+      "name": "Talon Tech",
+      "city": "Saratoga",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37362,
+      "name": "Vortex Masterminds",
+      "city": "Folsom",
+      "events": [],
+      "unmappedEvents": [
+        "League_NE"
+      ]
+    },
+    {
+      "number": 37383,
+      "name": "Cipher Bots",
+      "city": "Hillsborough",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37404,
+      "name": "Mendota Junior High School",
+      "city": "Mendota",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 37411,
+      "name": "Tranquility High School",
+      "city": "San Joaquin",
+      "events": [],
+      "unmappedEvents": [
+        "League_CV"
+      ]
+    },
+    {
+      "number": 37419,
+      "name": "GearShift Robotics",
+      "city": "Milpitas",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37433,
+      "name": "Stacktrace",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "LOD"
+      ]
+    },
+    {
+      "number": 37552,
+      "name": "NAVIGOATS",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 37667,
+      "name": "Botrageous",
+      "city": "Los Gatos",
+      "events": [
+        "FMT_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37805,
+      "name": "Orbital Coyotes",
+      "city": "Santa Rosa",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37821,
+      "name": "Unity Robotics",
+      "city": "San Jose",
+      "events": [
+        "TPS_1"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 37954,
+      "name": "The Cows",
+      "city": "Los Gatos",
+      "events": [
+        "ATH"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38063,
+      "name": "Mercy Bears",
+      "city": "Burlingame",
+      "events": [],
+      "unmappedEvents": [
+        "League_PN"
+      ]
+    },
+    {
+      "number": 38066,
+      "name": "1337 R0b0t1c5",
+      "city": "San Mateo",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38123,
+      "name": "Whats our name again",
+      "city": "Atherton",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38130,
+      "name": "Stratford Milpitas HS",
+      "city": "Milpitas",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38144,
+      "name": "Summit 360",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": [
+        "League_TC"
+      ]
+    },
+    {
+      "number": 38188,
+      "name": "Spark Apex",
+      "city": "Cupertino",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38190,
+      "name": "Spark Servos",
+      "city": "Cupertino",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38215,
+      "name": "Fusion X",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38299,
+      "name": "SpaceBots",
+      "city": "San Jose",
+      "events": [
+        "SJ_2"
+      ],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38459,
+      "name": "Bentley Phoenix",
+      "city": "Lafayette",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38539,
+      "name": "Queen Bees",
+      "city": "Santa Rosa",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38552,
+      "name": "LucidBots",
+      "city": "Folsom",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38604,
+      "name": "JLH Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38605,
+      "name": "MP Robotics",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38615,
+      "name": "Event Horizon",
+      "city": "San Jose",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38616,
+      "name": "mh-ftc-bots",
+      "city": "Mountain House",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38717,
+      "name": "Cougar Robotics",
+      "city": "Oakland",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38792,
+      "name": "Rise",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38834,
+      "name": "TechFire",
+      "city": "Dublin",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 38870,
+      "name": "RyuBots",
+      "city": "Fremont",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 39109,
+      "name": "Deus Machina",
+      "city": "San Ramon",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 39360,
+      "name": "BOTanists",
+      "city": "Elk Grove",
+      "events": [],
+      "unmappedEvents": []
+    },
+    {
+      "number": 39376,
+      "name": "Old Orchard School 26-27 Yellow Jackets",
+      "city": "Campbell",
+      "events": [],
+      "unmappedEvents": []
+    }
+  ]
+}

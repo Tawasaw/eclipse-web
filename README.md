@@ -22,3 +22,9 @@ The site deploys to GitHub Pages from `.github/workflows/deploy.yml` when
 changes are pushed to `main`.
 
 The custom domain is configured through `public/CNAME`.
+
+## NorCal qualifier schedule
+
+The `/qualifiers/` page supports team and event filters and refreshes nightly.
+See [qualifier schedule maintenance](docs/qualifier-schedule.md) for data sources,
+manual refresh commands, and workflow behavior.

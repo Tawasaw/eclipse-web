@@ -1,0 +1,54 @@
+{
+  "season": "BIOBUZZ 2026\u201327",
+  "events": [
+    {
+      "id": "FMT_1",
+      "name": "Fremont #1",
+      "date": "2026-11-15",
+      "location": "SFBU - Fremont",
+      "capacity": 16
+    },
+    {
+      "id": "SJ_1",
+      "name": "San Jose #1",
+      "date": "2026-11-21",
+      "location": "Bellarmine College Prep - San Jose",
+      "capacity": 28
+    },
+    {
+      "id": "FMT_2",
+      "name": "Fremont #2",
+      "date": "2026-11-22",
+      "location": "Innovate Bay",
+      "capacity": 16
+    },
+    {
+      "id": "TPS_1",
+      "name": "TPS #1",
+      "date": "2026-12-05",
+      "location": "The Play Space",
+      "capacity": 16
+    },
+    {
+      "id": "ATH",
+      "name": "Atherton",
+      "date": "2026-12-06",
+      "location": "Sacred Heart Schools",
+      "capacity": 16
+    },
+    {
+      "id": "SJ_2",
+      "name": "San Jose #2",
+      "date": "2026-12-12",
+      "location": "Hillbrook School - San Jose",
+      "capacity": 16
+    },
+    {
+      "id": "TPS_2",
+      "name": "TPS #2",
+      "date": "2026-12-13",
+      "location": "The Play Space - San Jose",
+      "capacity": 16
+    }
+  ]
+}

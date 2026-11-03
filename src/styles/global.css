@@ -182,6 +182,7 @@ a:hover {
 
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 28px;
   font-size: 12px;
   font-weight: 600;
@@ -661,4 +662,44 @@ section {
   body {
     transition: none !important;
   }
+}
+
+/* NorCal qualifier directory */
+html.qualifier-document { scroll-snap-type: none; }
+.qualifier-page section { min-height: 0; scroll-snap-align: none; scroll-snap-stop: normal; }
+.qualifier-page [hidden] { display: none !important; }
+.qualifier-intro { padding: 64px 0 32px; }
+.qualifier-intro h1 { font-size: clamp(2.4rem, 6vw, 5rem); letter-spacing: -0.05em; margin: 12px 0; line-height: 1.05; }
+.qualifier-lede { font-size: 1.35rem; }
+.qualifier-updated, .qualifier-footnote { font-size: 0.875rem; color: var(--color-neutral-600); line-height: 1.6; }
+#stale-note { border-left: 3px solid var(--color-accent); padding: 8px 16px; }
+.qualifier-filters { display: flex; align-items: end; gap: 16px; flex-wrap: wrap; padding: 24px 0; border-block: 2px solid var(--color-divider); }
+.qualifier-filters label { display: grid; gap: 8px; flex: 1 1 240px; font-weight: 600; }
+.qualifier-filters input, .qualifier-filters select { width: 100%; min-width: 0; box-sizing: border-box; min-height: 48px; padding: 12px; border: 1px solid var(--color-divider); border-radius: 0; background: var(--color-bg); color: var(--color-text); font: inherit; }
+.qualifier-filters button { min-height: 48px; cursor: pointer; }
+.qualifier-page :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 4px; }
+.qualifier-event { border-top: 2px solid var(--color-divider); margin: 32px 0; }
+.qualifier-page .qualifier-event { padding-block: 0; }
+.qualifier-event-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 0; }
+.qualifier-event-head h2 { font-size: 1.8rem; margin: 6px 0; letter-spacing: -0.03em; }
+.qualifier-event-head p { margin: 6px 0; }
+.qualifier-count { flex-shrink: 0; }
+.qualifier-count strong { color: var(--color-accent-700); font-size: 1.8rem; }
+.qualifier-teams { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.qualifier-teams li { min-width: 0; border-top: 1px solid var(--color-neutral-600); }
+.qualifier-teams a { display: flex; align-items: center; gap: 16px; padding: 18px 8px; box-sizing: border-box; color: var(--color-text); }
+.qualifier-teams .qualifier-norcal { width: fit-content; margin-left: calc(5ch + 24px); padding: 0 8px 16px; font-size: 0.8rem; color: var(--color-accent-700); }
+.qualifier-teams a:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.qualifier-number { min-width: 5ch; font-variant-numeric: tabular-nums; color: var(--color-accent-700); }
+.qualifier-teams strong { overflow-wrap: anywhere; }
+.qualifier-teams small { display: block; margin-top: 4px; color: var(--color-neutral-600); }
+.qualifier-team-arrow { margin-left: auto; }
+.qualifier-teams .is-eclipse { border-left: 3px solid var(--color-accent); }
+.qualifier-pending { padding-bottom: 16px; color: var(--color-neutral-600); }
+.qualifier-footnote { max-width: 80ch; margin: 48px 0; }
+@media (max-width: 650px) {
+  .qualifier-teams { grid-template-columns: 1fr; }
+  .qualifier-event-head { align-items: start; flex-direction: column; gap: 4px; }
+  .qualifier-intro { padding-top: 40px; }
+  .qualifier-page .site-header { gap: 12px; flex-wrap: wrap; }
 }

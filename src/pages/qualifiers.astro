@@ -1,0 +1,161 @@
+---
+import "../styles/global.css";
+import config from "../data/qualifier-events.json";
+import snapshot from "../data/qualifier-assignments.json";
+
+const date = (value: string) => new Intl.DateTimeFormat("en-US", {
+  weekday: "short", month: "short", day: "numeric", timeZone: "America/Los_Angeles"
+}).format(new Date(`${value}T12:00:00-08:00`));
+const updated = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium", timeStyle: "short", timeZone: "America/Los_Angeles"
+}).format(new Date(snapshot.updatedAt));
+const pending = snapshot.teams.filter(team => !team.events.length && !team.unmappedEvents.length);
+const outside = snapshot.teams.filter(team => team.unmappedEvents.length);
+---
+
+<!doctype html>
+<html lang="en" class="qualifier-document">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browse BIOBUZZ 2026 NorCal qualifier assignments by event, team name, or team number. Updated nightly from NorCal FTC." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>NorCal Qualifiers · Eclipse 30618</title>
+    <script is:inline>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div class="shell qualifier-page">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Eclipse 30618 home">
+          <span class="brand-disc" aria-hidden="true"></span>
+          <span class="brand-name">ECLIPSE 30618</span>
+        </a>
+        <a href="/">← Team website</a>
+      </header>
+      <main>
+        <section class="qualifier-intro" aria-labelledby="schedule-title">
+          <p class="eyebrow">BIOBUZZ / 2026–27 SEASON</p>
+          <h1 id="schedule-title">NorCal Qualifiers</h1>
+          <p class="qualifier-lede">Find your event. Meet the teams sharing the field.</p>
+          <p>Published assignments from <a href={snapshot.source}>NorCal FTC</a>. Refreshes nightly; assignments may change.</p>
+          <p class="qualifier-updated">Last successful refresh: <time datetime={snapshot.updatedAt}>{updated} Pacific</time> · {snapshot.teams.length} teams checked</p>
+          <p id="stale-note" hidden>The latest refresh is more than two days old. Check NorCal FTC for current assignments.</p>
+        </section>
+
+        <form class="qualifier-filters" id="qualifier-filters" role="search" hidden>
+          <label for="team-filter">Team name or number
+            <input id="team-filter" name="team" type="search" placeholder="e.g. Eclipse or 30618" autocomplete="off" />
+          </label>
+          <label for="event-filter">Event
+            <select id="event-filter" name="event">
+              <option value="">All events & teams</option>
+              {config.events.map(event => <option value={event.id}>{event.name} · {date(event.date)}</option>)}
+              <option value="pending">No published assignment</option>
+              <option value="other">Other events & leagues</option>
+            </select>
+          </label>
+          <button class="btn btn-ghost" type="reset">Clear filters</button>
+          <button class="btn btn-ghost" id="eclipse-filter" type="button">Find Eclipse</button>
+        </form>
+        <noscript><p>All published teams are shown below. Enable JavaScript to filter by team and event.</p></noscript>
+        <p id="filter-summary" role="status" aria-live="polite"></p>
+        <p id="empty-results" hidden>No teams match these filters. Try another team or clear the filters.</p>
+
+        <div id="qualifier-results">
+          {config.events.map(event => {
+            const teams = snapshot.teams.filter(team => team.events.includes(event.id));
+            return <section class="qualifier-event" data-event={event.id} aria-labelledby={`title-${event.id}`}>
+              <div class="qualifier-event-head">
+                <div>
+                  <p class="eyebrow"><time datetime={event.date}>{date(event.date)}, 2026</time></p>
+                  <h2 id={`title-${event.id}`}>{event.name}</h2>
+                  <p>{event.location}</p>
+                </div>
+                <p class="qualifier-count"><strong>{teams.length}</strong> assigned / {event.capacity} capacity</p>
+              </div>
+              {teams.length ? <ul class="qualifier-teams">
+                {teams.map(team => <li data-team={`${team.number} ${team.name}`.toLowerCase()} data-number={team.number} class:list={[{ "is-eclipse": team.number === 30618 }]}>
+                  <a href={`https://ftc-events.firstinspires.org/team/${team.number}`}>
+                    <span class="qualifier-number">{team.number}</span>
+                    <span><strong>{team.name}</strong><small>{team.city}</small></span>
+                    <span class="qualifier-team-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="qualifier-norcal" href={`https://www.norcalftc.org/ftc-team-status/?ftcteam=${team.number}`} aria-label={`NorCal status for ${team.name} ${team.number}`}>NorCal status ↗</a>
+                </li>)}
+              </ul> : <p class="qualifier-pending">No assignments published for this event yet.</p>}
+            </section>;
+          })}
+          {[{ id: "other", name: "Other events & leagues", teams: outside, description: "These events and leagues are outside the schedule above. Visit NorCal FTC for dates and assignment details." },
+            { id: "pending", name: "No published assignment", teams: pending, description: "NorCal has not published a qualifier assignment for these teams yet." }].map(group =>
+            <section class="qualifier-event" data-event={group.id} aria-labelledby={`title-${group.id}`}>
+              <div class="qualifier-event-head"><div><h2 id={`title-${group.id}`}>{group.name}</h2><p>{group.description}</p></div><p>{group.teams.length} teams</p></div>
+              <ul class="qualifier-teams">
+                {group.teams.map(team => <li data-team={`${team.number} ${team.name}`.toLowerCase()} data-number={team.number}>
+                  <a href={`https://ftc-events.firstinspires.org/team/${team.number}`}>
+                    <span class="qualifier-number">{team.number}</span>
+                    <span><strong>{team.name}</strong><small>{team.city}{team.unmappedEvents.length ? ` · ${team.unmappedEvents.join(", ")}` : ""}</small></span>
+                    <span class="qualifier-team-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="qualifier-norcal" href={`https://www.norcalftc.org/ftc-team-status/?ftcteam=${team.number}`} aria-label={`NorCal status for ${team.name} ${team.number}`}>NorCal status ↗</a>
+                </li>)}
+              </ul>
+            </section>
+          )}
+        </div>
+        <p class="qualifier-footnote">Dates, venues, and capacities follow the November–December 2026 NorCal qualifying preference schedule. Counts reflect published assignments, not guaranteed availability. Select a team’s name for its official FIRST page, or NorCal status for its local assignments.</p>
+      </main>
+      <footer class="site-footer"><span>ECLIPSE 30618 &mdash; FTC</span><a href={snapshot.source}>Source: NorCal FTC ↗</a></footer>
+    </div>
+    <script>
+      const form = document.querySelector<HTMLFormElement>("#qualifier-filters")!;
+      const teamInput = document.querySelector<HTMLInputElement>("#team-filter")!;
+      const eventInput = document.querySelector<HTMLSelectElement>("#event-filter")!;
+      const sections = [...document.querySelectorAll<HTMLElement>("[data-event]")];
+      const summary = document.querySelector<HTMLElement>("#filter-summary")!;
+      const params = new URLSearchParams(location.search);
+      teamInput.value = params.get("team") || "";
+      eventInput.value = params.get("event") || "";
+      form.hidden = false;
+
+      function filter(updateUrl = true) {
+        const query = teamInput.value.trim().toLowerCase();
+        const event = eventInput.value;
+        const teams = new Set<string>();
+        let visibleSections = 0;
+        for (const section of sections) {
+          let matches = 0;
+          const eventMatches = !event || section.dataset.event === event;
+          for (const row of section.querySelectorAll<HTMLElement>("[data-team]")) {
+            row.hidden = !eventMatches || !row.dataset.team!.includes(query);
+            if (!row.hidden) { matches++; teams.add(row.dataset.number!); }
+          }
+          const hasRows = !!section.querySelector("[data-team]");
+          section.hidden = !eventMatches || (hasRows ? matches === 0 : !!query);
+          if (!section.hidden) visibleSections++;
+        }
+        summary.textContent = `${teams.size} matching team${teams.size === 1 ? "" : "s"} · ${visibleSections} event group${visibleSections === 1 ? "" : "s"}`;
+        document.querySelector<HTMLElement>("#empty-results")!.hidden = visibleSections > 0;
+        if (updateUrl) {
+          const url = new URL(location.href);
+          query ? url.searchParams.set("team", teamInput.value.trim()) : url.searchParams.delete("team");
+          event ? url.searchParams.set("event", event) : url.searchParams.delete("event");
+          history.replaceState(null, "", url);
+        }
+      }
+      form.addEventListener("submit", event => event.preventDefault());
+      teamInput.addEventListener("input", () => filter());
+      eventInput.addEventListener("change", () => filter());
+      form.addEventListener("reset", () => { teamInput.value = ""; eventInput.value = ""; filter(); });
+      document.querySelector("#eclipse-filter")!.addEventListener("click", () => {
+        teamInput.value = "30618"; eventInput.value = ""; filter();
+      });
+      const checkedAt = document.querySelector<HTMLTimeElement>(".qualifier-updated time")!.dateTime;
+      document.querySelector<HTMLElement>("#stale-note")!.hidden = Date.now() - Date.parse(checkedAt) < 2 * 86400000;
+      filter(false);
+    </script>
+  </body>
+</html>
