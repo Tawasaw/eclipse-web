@@ -2,6 +2,15 @@
 import "../styles/global.css";
 import config from "../data/qualifier-events.json";
 import snapshot from "../data/qualifier-assignments.json";
+import history from "../data/team-ratings.json";
+import rubric from "../data/team-rating-rubric.json";
+import QualifierTeam from "../components/QualifierTeam.astro";
+import type { TeamRating } from "../data/team-rating";
+
+const teamRatings: Record<string, TeamRating> = history.teams;
+const ratingUpdated = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium", timeStyle: "short", timeZone: "America/Los_Angeles"
+}).format(new Date(history.updatedAt));
 
 const date = (value: string) => new Intl.DateTimeFormat("en-US", {
   weekday: "short", month: "short", day: "numeric", timeZone: "America/Los_Angeles"
@@ -44,6 +53,7 @@ const outside = snapshot.teams.filter(team => team.unmappedEvents.length);
           <p>Published assignments from <a href={snapshot.source}>NorCal FTC</a>. Refreshes nightly; assignments may change.</p>
           <p class="qualifier-updated">Last successful refresh: <time datetime={snapshot.updatedAt}>{updated} Pacific</time> · {snapshot.teams.length} teams checked</p>
           <p id="stale-note" hidden>The latest refresh is more than two days old. Check NorCal FTC for current assignments.</p>
+          <p class="qualifier-rating-intro">The badge beside each name is a <a href="#rating-method">1–10 history rating</a>. Red 10/10 marks a Worlds overall finalist or champion. Open “Rating details” for the result behind a score.</p>
         </section>
 
         <form class="qualifier-filters" id="qualifier-filters" role="search" hidden>
@@ -78,14 +88,7 @@ const outside = snapshot.teams.filter(team => team.unmappedEvents.length);
                 <p class="qualifier-count"><strong>{teams.length}</strong> assigned / {event.capacity} capacity</p>
               </div>
               {teams.length ? <ul class="qualifier-teams">
-                {teams.map(team => <li data-team={`${team.number} ${team.name}`.toLowerCase()} data-number={team.number} class:list={[{ "is-eclipse": team.number === 30618 }]}>
-                  <a href={`https://ftc-events.firstinspires.org/team/${team.number}`}>
-                    <span class="qualifier-number">{team.number}</span>
-                    <span><strong>{team.name}</strong><small>{team.city}</small></span>
-                    <span class="qualifier-team-arrow" aria-hidden="true">↗</span>
-                  </a>
-                  <a class="qualifier-norcal" href={`https://www.norcalftc.org/ftc-team-status/?ftcteam=${team.number}`} aria-label={`NorCal status for ${team.name} ${team.number}`}>NorCal status ↗</a>
-                </li>)}
+                {teams.map(team => <QualifierTeam team={team} rating={teamRatings[String(team.number)]} />)}
               </ul> : <p class="qualifier-pending">No assignments published for this event yet.</p>}
             </section>;
           })}
@@ -94,18 +97,22 @@ const outside = snapshot.teams.filter(team => team.unmappedEvents.length);
             <section class="qualifier-event" data-event={group.id} aria-labelledby={`title-${group.id}`}>
               <div class="qualifier-event-head"><div><h2 id={`title-${group.id}`}>{group.name}</h2><p>{group.description}</p></div><p>{group.teams.length} teams</p></div>
               <ul class="qualifier-teams">
-                {group.teams.map(team => <li data-team={`${team.number} ${team.name}`.toLowerCase()} data-number={team.number}>
-                  <a href={`https://ftc-events.firstinspires.org/team/${team.number}`}>
-                    <span class="qualifier-number">{team.number}</span>
-                    <span><strong>{team.name}</strong><small>{team.city}{team.unmappedEvents.length ? ` · ${team.unmappedEvents.join(", ")}` : ""}</small></span>
-                    <span class="qualifier-team-arrow" aria-hidden="true">↗</span>
-                  </a>
-                  <a class="qualifier-norcal" href={`https://www.norcalftc.org/ftc-team-status/?ftcteam=${team.number}`} aria-label={`NorCal status for ${team.name} ${team.number}`}>NorCal status ↗</a>
-                </li>)}
+                {group.teams.map(team => <QualifierTeam team={team} rating={teamRatings[String(team.number)]} />)}
               </ul>
             </section>
           )}
         </div>
+        <section id="rating-method" class="qualifier-rating-method" aria-labelledby="rating-method-title">
+          <details>
+            <summary id="rating-method-title">How the 1–10 history rating works</summary>
+            <p>This Eclipse scouting rubric uses a team’s highest recorded milestone in completed official events from {rubric.firstSeason}–{rubric.lastSeason} season starts. It is an achievement summary, not an official FIRST ranking or a prediction of current robot performance.</p>
+            <p>Results come from <a href="https://ftcscout.org/api">FTCScout</a>. Last successful history refresh: <time datetime={history.updatedAt}>{ratingUpdated} Pacific</time>. Each team’s details link to the supporting event. Older results may be incomplete; “Unrated” means history is unavailable, while 1/10 means a current-season rookie or no qualification wins in available records.</p>
+            <ol class="qualifier-rating-rubric">
+              {rubric.levels.map(level => <li><strong>{level.score}/10 · {level.label}</strong><p>{level.description}</p></li>)}
+            </ol>
+            <p>Practice, scrimmage, off-season, and premier invitational events do not raise the rating. Individual awards do not prove a team reached finals. Worlds division results are distinguished from overall World Championship finals. Scores use the highest milestone, so older achievements remain visible.</p>
+          </details>
+        </section>
         <p class="qualifier-footnote">Dates, venues, and capacities follow the November–December 2026 NorCal qualifying preference schedule. Counts reflect published assignments, not guaranteed availability. Select a team’s name for its official FIRST page, or NorCal status for its local assignments.</p>
       </main>
       <footer class="site-footer"><span>ECLIPSE 30618 &mdash; FTC</span><a href={snapshot.source}>Source: NorCal FTC ↗</a></footer>

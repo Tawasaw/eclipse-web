@@ -21,6 +21,10 @@ checked-in snapshot. Snapshots are included in the Pages artifact; the workflow
 does not create commits or push changes to the repository. Local builds use the
 checked-in snapshot and do not require network access to NorCal.
 
+The same workflow refreshes historical ratings from FTCScout after fetching
+the current NorCal roster. A history refresh failure also stops deployment,
+preserving the previous published page and its successful refresh timestamps.
+
 The updater uses Python's standard library, requests pages one at a time,
 pauses between teams, and retries transient network errors. It collects only
 team number, name, city, and qualifier assignments. Eligibility, consent, and
@@ -35,6 +39,7 @@ successful refresh time and a notice when that is more than two days old.
 
 ```sh
 python3 scripts/update-qualifiers.py
+python3 scripts/update-team-ratings.py
 python3 -m unittest discover -s tests -v
 npm run build
 ```
@@ -61,3 +66,46 @@ The updater refuses a different season and unexpectedly large roster drops.
 Before the next season, review the season guard, event configuration, page
 copy, and fixtures. Parser regression tests use reduced public HTML fixtures
 from NorCal, including its malformed closing cell tags.
+
+## Historical team ratings
+
+Every team has a badge beside its name and expandable **Rating details**.
+The details include the reason, an official event link, the best available
+event qualification record, and seasons checked. FIRST and NorCal team links
+remain available. The page also includes the complete scoring rubric.
+
+`scripts/update-team-ratings.py` batches public GraphQL queries to
+`https://api.ftcscout.org/graphql`. It fetches metadata, alliance awards, and
+event qualification records for the available 2019–2026 season starts. No API
+key or extra Python packages are needed. Requests run sequentially with a pause
+between small batches. A failed or partial response cannot replace
+`src/data/team-ratings.json`.
+
+`src/data/team-rating-rubric.json` defines the displayed levels and historical
+window. The scorer uses the team's highest completed official event milestone:
+
+| Score | Recorded achievement |
+| --- | --- |
+| 10 | Worlds overall winning or finalist alliance |
+| 9 | Worlds division winning or finalist alliance |
+| 8 | Worlds match participation or team award |
+| 7 | Regional/state overall winning alliance |
+| 6 | Regional/state overall finalist or division winner/finalist |
+| 5 | Qualifier, super qualifier, or league tournament winning alliance |
+| 4 | Qualifier/league tournament finalist or regional/state participation |
+| 3 | At least 50% qualification wins in one completed event with at least five matches |
+| 2 | At least one recorded qualification win |
+| 1 | Current-season rookie without results, or available official results with zero qualification wins |
+
+Missing historical data is **Unrated**, not evidence of zero wins. Older history
+may be incomplete. This is an Eclipse achievement rubric, not an official FIRST
+ranking or a current-performance prediction; it has no recency decay.
+
+Worlds roster entries without a match record do not prove finals or attendance.
+Only alliance winner/finalist awards earn 9–10; individual Dean's List/Compass
+and Promote awards do not establish robot participation. Practice, scrimmage,
+off-season, premier invitational, and future/incomplete events are excluded.
+The best event qualification record is shown instead of a pooled record to
+avoid double counting league standings that can contain earlier league meets.
+Tests cover all ten levels, division/overall distinctions, rookies vs. absent
+history, qualification thresholds, excluded events, and failed-refresh retention.

@@ -1,0 +1,40 @@
+---
+import type { TeamRating } from "../data/team-rating";
+
+interface Props {
+  team: { number: number; name: string; city: string; unmappedEvents: string[] };
+  rating?: TeamRating;
+}
+
+const { team, rating } = Astro.props;
+const score = rating?.score ?? null;
+const scoreLabel = score === null ? "Unrated" : `${score}/10`;
+const tone = score === null ? "unknown" : score >= 9 ? "elite" : score >= 6 ? "high" : score >= 4 ? "medium" : "low";
+const reason = rating?.reason ?? "Historical results have not been retrieved for this team yet.";
+const record = rating?.bestQualificationRecord;
+---
+
+<li data-team={`${team.number} ${team.name}`.toLowerCase()} data-number={team.number} class:list={[{ "is-eclipse": team.number === 30618 }]}>
+  <a class="qualifier-team-primary" href={`https://ftc-events.firstinspires.org/team/${team.number}`}>
+    <span class="qualifier-number">{team.number}</span>
+    <span class="qualifier-identity">
+      <span class="qualifier-name-line">
+        <strong>{team.name}</strong>
+        <span class={`history-score history-score--${tone}`} data-score={score} title={`${scoreLabel}: ${reason}`} aria-label={score === null ? "History rating unavailable" : `History rating ${score} out of 10`}>{scoreLabel}</span>
+      </span>
+      <small>{team.city}{team.unmappedEvents.length ? ` · ${team.unmappedEvents.join(", ")}` : ""}</small>
+    </span>
+    <span class="qualifier-team-arrow" aria-hidden="true">↗</span>
+  </a>
+  <div class="qualifier-team-links">
+    <a class="qualifier-norcal" href={`https://www.norcalftc.org/ftc-team-status/?ftcteam=${team.number}`} aria-label={`NorCal status for ${team.name} ${team.number}`}>NorCal status ↗</a>
+    <details class="qualifier-rating-details">
+      <summary aria-label={`Rating details for ${team.name} ${team.number}`}>Rating details</summary>
+      <p><strong>{scoreLabel}</strong> · {reason}</p>
+      {rating?.evidence && <p>Evidence: <a href={rating.evidence.url}>{rating.evidence.name} ({rating.evidence.season}–{String(rating.evidence.season + 1).slice(-2)}) ↗</a></p>}
+      {record?.record && <p>Best event qualification record: {record.record.wins}W–{record.record.losses}L–{record.record.ties}T at <a href={record.url}>{record.name} ({record.season}–{String(record.season + 1).slice(-2)}) ↗</a>.</p>}
+      {rating && <p>{rating.eventsWithRecords} events with recorded matches · Rookie year: {rating.rookieYear ?? "unknown"}. {rating.seasons.length ? `Seasons checked: ${rating.seasons.join(", ")}.` : "No historical seasons available."}</p>}
+      <p><a href="#rating-method">How ratings work</a> · <a href={`https://ftcscout.org/teams/${team.number}`}>History on FTCScout ↗</a></p>
+    </details>
+  </div>
+</li>

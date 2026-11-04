@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "firstSeason": 2019,
+  "lastSeason": 2026,
+  "levels": [
+    { "score": 10, "label": "Worlds overall finalist or champion", "description": "Winning or finalist alliance at the overall FIRST World Championship, beyond the division rounds." },
+    { "score": 9, "label": "Worlds division finalist or champion", "description": "Winning or finalist alliance in a World Championship division." },
+    { "score": 8, "label": "Worlds participant", "description": "Recorded match participation or an award at the FIRST World Championship." },
+    { "score": 7, "label": "Regional / state champion", "description": "Winning alliance at a regional or state championship overall." },
+    { "score": 6, "label": "Regional / state finalist", "description": "Finalist alliance overall, or winning/finalist alliance in a regional or state championship division." },
+    { "score": 5, "label": "Qualifier / league champion", "description": "Winning alliance at a qualifier, super qualifier, or league tournament." },
+    { "score": 4, "label": "Qualifier finalist / regional participant", "description": "Finalist alliance at a qualifier, super qualifier, or league tournament; or recorded regional/state championship participation." },
+    { "score": 3, "label": "50%+ qualification win rate", "description": "At least 50% qualification wins at one completed official event with five or more recorded qualification matches." },
+    { "score": 2, "label": "Recorded qualification wins", "description": "At least one qualification match win, without a higher milestone above." },
+    { "score": 1, "label": "New / no recorded qualification wins", "description": "A current-season rookie without results, or available official results with no recorded qualification match wins." }
+  ]
+}
