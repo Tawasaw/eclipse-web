@@ -4,6 +4,12 @@ The `/qualifiers/` page shows BIOBUZZ 2026–27 assignments from the public
 [NorCal team list](https://www.norcalftc.org/norcal-ftc-team-list-new/) and each
 team's linked status page. Filter by team name/number and event together.
 The filters are saved in the URL, so `/qualifiers/?team=30618` links to Eclipse.
+Teams are organized into dated qualifiers, individual leagues, and other
+individual event codes. The league/event selector has matching sections and
+can show a single competition or an entire category. For example,
+`/qualifiers/?event=League_EB` shows that league, while `?event=leagues` shows
+all leagues. Category headings disappear when their groups do not match the
+active filters. Counts continue to count each matching team once.
 Selecting a team opens its official FIRST team page at
 `https://ftc-events.firstinspires.org/team/{team-number}`. A separate **NorCal
 status** link opens that team’s local assignment and registration status page.
@@ -55,7 +61,7 @@ capacities from the supplied 2026 NorCal qualifying preference table. For
 example, `TPS_1` maps to **TPS #1**, December 5, 2026, at The Play Space.
 Codes match without spaces, underscores, punctuation, or case; no fuzzy matches
 or inferred dates are used. Additional published codes and league teams appear
-in **Other events & leagues**, where visitors can follow the team’s official FIRST page link.
+in their own groups under **Leagues** or **Other events**, where visitors can follow the team’s official FIRST page link.
 Add confirmed dates/codes to this configuration as the season expands.
 
 Registration/preference links are not assignments. Teams with no published

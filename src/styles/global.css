@@ -681,7 +681,11 @@ html.qualifier-document { scroll-snap-type: none; }
 .qualifier-event { border-top: 2px solid var(--color-divider); margin: 32px 0; }
 .qualifier-page .qualifier-event { padding-block: 0; }
 .qualifier-event-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 0; }
-.qualifier-event-head h2 { font-size: 1.8rem; margin: 6px 0; letter-spacing: -0.03em; }
+.qualifier-event-head h2, .qualifier-event-head h3 { font-size: 1.8rem; margin: 6px 0; letter-spacing: -0.03em; }
+.qualifier-category { margin-top: 48px; }
+.qualifier-category-head { padding: 20px; border-left: 4px solid var(--color-accent); background: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+.qualifier-category-head h2 { font-size: 1.6rem; margin: 0 0 8px; }
+.qualifier-category-head p { margin: 0; line-height: 1.6; }
 .qualifier-event-head p { margin: 6px 0; }
 .qualifier-count { flex-shrink: 0; }
 .qualifier-count strong { color: var(--color-accent-700); font-size: 1.8rem; }
