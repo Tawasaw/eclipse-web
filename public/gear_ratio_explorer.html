@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gear Ratio Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E4FD8}a:hover{color:#163a9e}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spin{animation:none !important}}
+button:disabled{opacity:0.4;cursor:not-allowed}
+
+html, body { min-height: 100%; background: #F3F5F7; }
+#explorer { width: 100% !important; max-width: 1200px; margin: 0 auto; }
+button:focus-visible { outline: 3px solid #1E4FD8; outline-offset: 3px; }
+@media (max-width: 1100px) {
+  #explorer { padding: 32px !important; }
+  .explorer-layout { flex-direction: column; }
+  .explorer-layout > div:first-child { align-items: center; }
+}
+@media (max-width: 600px) {
+  #explorer { padding: 20px !important; }
+  #explorer header { flex-direction: column; align-items: flex-start !important; }
+  #explorer header > div:last-child { text-align: left !important; }
+  #explorer h1 { font-size: 36px !important; }
+  .explorer-layout > div:first-child { padding: 12px !important; }
+  .explorer-layout > div:last-child > div:first-child { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+<main id="explorer" style="width: 1200px; min-height: 800px; box-sizing: border-box; padding: 56px; display: flex; flex-direction: column; gap: 24px; background: #F3F5F7; color: #111418; font-family: Inter, system-ui, sans-serif">
+
+<header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 48px; letter-spacing: -0.02em">Gear Ratio Explorer</h1>
+<p style="margin: 0; font-size: 19px; color: #3B4350">Change the teeth on each pulley and watch speed and torque trade places.</p>
+</div>
+<div style="font-size: 15px; line-height: 1.5; color: #4A5260; text-align: right">Motor in: <b style="color: #1E4FD8">6,000 RPM</b> · <b style="color: #A15C00">1.47 kg·cm</b><br>Belt friction: about 3%</div>
+</header>
+
+<div class="explorer-layout" style="display: flex; gap: 24px; flex: 1; min-height: 0">
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<svg style="max-width: 100%; height: auto" width="640" height="440" viewBox="0 0 640 440" role="img" aria-label="{{svgLabel}}">
+<path d="{{belt}}" fill="none" stroke="#111418" stroke-width="6" stroke-linejoin="round"></path>
+<g class="spin" style="transform-box: view-box; transform-origin: {{c2}}px 220px; animation: spin {{d2}}s linear infinite">
+<circle cx="{{c2}}" cy="220" r="{{r2}}" fill="#DCE3EC" stroke="#111418" stroke-width="6" style="stroke-dasharray: 6.283 6.283"></circle>
+<circle cx="{{c2}}" cy="220" r="{{r2in}}" fill="#DCE3EC" stroke="#111418" stroke-width="2"></circle>
+<line x1="{{c2}}" y1="{{s2top}}" x2="{{c2}}" y2="{{s2bot}}" stroke="#111418" stroke-width="5" stroke-linecap="round"></line>
+<line x1="{{s2left}}" y1="220" x2="{{s2right}}" y2="220" stroke="#111418" stroke-width="5" stroke-linecap="round"></line>
+<circle cx="{{c2}}" cy="{{dot2}}" r="8" fill="#1E4FD8"></circle>
+<circle cx="{{c2}}" cy="220" r="12" fill="#111418"></circle>
+</g>
+<g class="spin" style="transform-box: view-box; transform-origin: 130px 220px; animation: spin {{d1}}s linear infinite">
+<circle cx="130" cy="220" r="{{r1}}" fill="#FFC20E" stroke="#111418" stroke-width="6" style="stroke-dasharray: 6.283 6.283"></circle>
+<circle cx="130" cy="220" r="{{r1in}}" fill="#FFC20E" stroke="#111418" stroke-width="2"></circle>
+<line x1="130" y1="{{s1top}}" x2="130" y2="{{s1bot}}" stroke="#111418" stroke-width="4" stroke-linecap="round"></line>
+<line x1="{{s1left}}" y1="220" x2="{{s1right}}" y2="220" stroke="#111418" stroke-width="4" stroke-linecap="round"></line>
+<circle cx="130" cy="{{dot1}}" r="5" fill="#1E4FD8"></circle>
+<circle cx="130" cy="220" r="6" fill="#111418"></circle>
+</g>
+<text x="130" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#111418">MOTOR</text>
+<text x="{{c2}}" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#111418">ARM</text>
+</svg>
+<div style="font-size: 14px; color: #4A5260">Animation slowed down so you can follow the blue dots.</div>
+</div>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; border-top: 6px solid #FFC20E">
+<div style="font-size: 14px; font-weight: 700; color: #4A5260">Motor pulley (driver)</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<button type="button" aria-label="Fewer teeth on motor pulley" data-action="dec1" data-disabled="min1" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">−</button>
+<div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700">{{t1}}<span style="font-size: 14px; font-weight: 500; color: #4A5260"> teeth</span></div>
+<button type="button" aria-label="More teeth on motor pulley" data-action="inc1" data-disabled="max1" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">+</button>
+</div>
+</div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; border-top: 6px solid #8A93A0">
+<div style="font-size: 14px; font-weight: 700; color: #4A5260">Arm pulley (driven)</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<button type="button" aria-label="Fewer teeth on arm pulley" data-action="dec2" data-disabled="min2" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">−</button>
+<div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700">{{t2}}<span style="font-size: 14px; font-weight: 500; color: #4A5260"> teeth</span></div>
+<button type="button" aria-label="More teeth on arm pulley" data-action="inc2" data-disabled="max2" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">+</button>
+</div>
+</div>
+</div>
+
+<div style="background: #111418; color: #FFFFFF; border-radius: 18px; padding: 18px 22px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #C9D0D9">Gear ratio = {{t2}} ÷ {{t1}}</div>
+<div style="font-family: 'Space Grotesk', sans-serif; font-size: 44px; font-weight: 700; line-height: 1.1">{{ratioText}} : 1</div>
+<div style="font-size: 17px; color: #FFC20E; font-weight: 600">{{mode}}</div>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 18px 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 16px"><b style="color: #1E4FD8">Arm speed</b><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #1E4FD8">{{rpmText}} RPM</span></div>
+<div style="height: 14px; background: #E6EAF0; border-radius: 7px; overflow: hidden"><div style="height: 14px; background: #1E4FD8; border-radius: 7px; width: {{speedPct}}%"></div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 16px"><b style="color: #A15C00">Arm torque</b><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #A15C00">{{torqueText}} kg·cm</span></div>
+<div style="height: 14px; background: #E6EAF0; border-radius: 7px; overflow: hidden"><div style="height: 14px; background: #F2A900; border-radius: 7px; width: {{torquePct}}%"></div></div>
+</div>
+<div style="font-size: 14px; line-height: 1.45; color: #4A5260; border-top: 1px solid #E6EAF0; padding-top: 10px">Speed × torque stays about the same at every setting. That's power, and gears can't create it.</div>
+</div>
+</div>
+</div>
+
+</main>
+<noscript><p>Enable JavaScript to use the interactive pulley controls.</p></noscript>
+<script>
+const state = { t1: 14, t2: 42 };
+function values() {
+
+var t1 = state.t1;
+var t2 = state.t2;
+var N = t2 / t1;
+var rpm = 6000 / N;
+var torque = 1.47 * N * 0.97;
+var r1 = t1 * 2, r2 = t2 * 2;
+var c1 = 130, c2 = 440, cy = 220;
+var b1 = r1 + 6, b2 = r2 + 6;
+var belt = 'M ' + c1 + ' ' + (cy - b1) + ' L ' + c2 + ' ' + (cy - b2) +
+  ' A ' + b2 + ' ' + b2 + ' 0 0 1 ' + c2 + ' ' + (cy + b2) +
+  ' L ' + c1 + ' ' + (cy + b1) +
+  ' A ' + b1 + ' ' + b1 + ' 0 0 1 ' + c1 + ' ' + (cy - b1) + ' Z';
+var ratioText = Math.abs(N - Math.round(N)) < 0.005 ? String(Math.round(N)) : N.toFixed(2);
+var mode = N > 1.001 ? 'Geared down: slower, but stronger' : (N < 0.999 ? 'Geared up: faster, but weaker' : 'Same speed, same torque');
+var d1 = 1.2;
+var set = function (patch) { return function () { Object.assign(state, patch); render(); }; };
+return {
+  t1: t1, t2: t2, belt: belt, c2: c2,
+  r1: r1, r1in: r1 - 7, r2: r2, r2in: r2 - 8,
+  s1top: cy - r1 + 10, s1bot: cy + r1 - 10, s1left: c1 - r1 + 10, s1right: c1 + r1 - 10,
+  s2top: cy - r2 + 12, s2bot: cy + r2 - 12, s2left: c2 - r2 + 12, s2right: c2 + r2 - 12,
+  dot1: cy - r1 + 12, dot2: cy - r2 + 16,
+  d1: d1, d2: (d1 * N).toFixed(2),
+  ratioText: ratioText, mode: mode,
+  rpmText: Math.round(rpm).toLocaleString('en-US'),
+  torqueText: torque.toFixed(1),
+  speedPct: Math.min(100, rpm / 15000 * 100).toFixed(1),
+  torquePct: Math.min(100, torque / 10 * 100).toFixed(1),
+  svgLabel: 'Motor pulley with ' + t1 + ' teeth drives arm pulley with ' + t2 + ' teeth',
+  dec1: set({ t1: Math.max(10, t1 - 2) }), inc1: set({ t1: Math.min(30, t1 + 2) }),
+  dec2: set({ t2: Math.max(12, t2 - 6) }), inc2: set({ t2: Math.min(84, t2 + 6) }),
+  min1: t1 <= 10, max1: t1 >= 30, min2: t2 <= 12, max2: t2 >= 84
+};
+}
+// Keep bindings separate from rendered values so SVG elements and animations persist.
+const root = document.getElementById('explorer');
+const bindings = [];
+const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT);
+for (let node = walker.currentNode; node; node = walker.nextNode()) {
+  if (node.nodeType === Node.TEXT_NODE && node.textContent.includes('{{')) {
+    bindings.push({ node, template: node.textContent });
+  } else if (node.nodeType === Node.ELEMENT_NODE) {
+    for (const attribute of node.attributes) {
+      if (attribute.value.includes('{{')) bindings.push({ node, name: attribute.name, template: attribute.value });
+    }
+  }
+}
+function render() {
+  const data = values();
+  for (const { node, name, template } of bindings) {
+    const value = template.replace(/{{(\w+)}}/g, (_, key) => data[key]);
+    if (name) node.setAttribute(name, value);
+    else node.textContent = value;
+  }
+  for (const button of root.querySelectorAll('[data-action]')) {
+    button.disabled = data[button.dataset.disabled];
+    button.onclick = data[button.dataset.action];
+  }
+}
+render();
+</script>
+</body>
+</html>
