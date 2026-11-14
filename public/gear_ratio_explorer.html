@@ -16,7 +16,9 @@ button:disabled{opacity:0.4;cursor:not-allowed}
 
 html, body { min-height: 100%; background: #F3F5F7; }
 #explorer { width: 100% !important; max-width: 1200px; margin: 0 auto; }
-button:focus-visible { outline: 3px solid #1E4FD8; outline-offset: 3px; }
+input[type="number"] { width: 100%; min-width: 0; box-sizing: border-box; font: 700 24px "Space Grotesk", sans-serif; color: #111418; border: 1px solid #C9D0D9; border-radius: 8px; padding: 6px; }
+button { flex-shrink: 0; }
+button:focus-visible, input:focus-visible { outline: 3px solid #1E4FD8; outline-offset: 3px; }
 @media (max-width: 1100px) {
   #explorer { padding: 32px !important; }
   .explorer-layout { flex-direction: column; }
@@ -66,16 +68,16 @@ button:focus-visible { outline: 3px solid #1E4FD8; outline-offset: 3px; }
 <text x="130" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#111418">MOTOR</text>
 <text x="{{c2}}" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#111418">ARM</text>
 </svg>
-<div style="font-size: 14px; color: #4A5260">Animation slowed down so you can follow the blue dots.</div>
+<div style="font-size: 14px; color: #4A5260">Animation slowed down so you can follow the blue dots. Pulley sizes are illustrative at extreme ratios.</div>
 </div>
 
 <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
 <div style="background: #FFFFFF; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; border-top: 6px solid #FFC20E">
 <div style="font-size: 14px; font-weight: 700; color: #4A5260">Motor pulley (driver)</div>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
 <button type="button" aria-label="Fewer teeth on motor pulley" data-action="dec1" data-disabled="min1" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">−</button>
-<div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700">{{t1}}<span style="font-size: 14px; font-weight: 500; color: #4A5260"> teeth</span></div>
+<input type="number" data-teeth="t1" aria-label="Teeth on motor pulley" min="10" max="2000" step="1" value="14">
 <button type="button" aria-label="More teeth on motor pulley" data-action="inc1" data-disabled="max1" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">+</button>
 </div>
 </div>
@@ -83,7 +85,7 @@ button:focus-visible { outline: 3px solid #1E4FD8; outline-offset: 3px; }
 <div style="font-size: 14px; font-weight: 700; color: #4A5260">Arm pulley (driven)</div>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
 <button type="button" aria-label="Fewer teeth on arm pulley" data-action="dec2" data-disabled="min2" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">−</button>
-<div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700">{{t2}}<span style="font-size: 14px; font-weight: 500; color: #4A5260"> teeth</span></div>
+<input type="number" data-teeth="t2" aria-label="Teeth on arm pulley" min="10" max="2000" step="1" value="42">
 <button type="button" aria-label="More teeth on arm pulley" data-action="inc2" data-disabled="max2" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #C9D0D9; background: #F3F5F7; font-size: 24px; font-weight: 700; color: #111418; cursor: pointer">+</button>
 </div>
 </div>
@@ -120,14 +122,16 @@ var t2 = state.t2;
 var N = t2 / t1;
 var rpm = 6000 / N;
 var torque = 1.47 * N * 0.97;
-var r1 = t1 * 2, r2 = t2 * 2;
+// Fit both pulleys in the diagram; keep the smallest pulley legible.
+var scale = Math.min(2, 110 / Math.max(t1, t2));
+var r1 = Math.max(20, t1 * scale), r2 = Math.max(20, t2 * scale);
 var c1 = 130, c2 = 440, cy = 220;
 var b1 = r1 + 6, b2 = r2 + 6;
 var belt = 'M ' + c1 + ' ' + (cy - b1) + ' L ' + c2 + ' ' + (cy - b2) +
   ' A ' + b2 + ' ' + b2 + ' 0 0 1 ' + c2 + ' ' + (cy + b2) +
   ' L ' + c1 + ' ' + (cy + b1) +
   ' A ' + b1 + ' ' + b1 + ' 0 0 1 ' + c1 + ' ' + (cy - b1) + ' Z';
-var ratioText = Math.abs(N - Math.round(N)) < 0.005 ? String(Math.round(N)) : N.toFixed(2);
+var ratioText = N.toLocaleString('en-US', { maximumFractionDigits: 4 });
 var mode = N > 1.001 ? 'Geared down: slower, but stronger' : (N < 0.999 ? 'Geared up: faster, but weaker' : 'Same speed, same torque');
 var d1 = 1.2;
 var set = function (patch) { return function () { Object.assign(state, patch); render(); }; };
@@ -137,16 +141,16 @@ return {
   s1top: cy - r1 + 10, s1bot: cy + r1 - 10, s1left: c1 - r1 + 10, s1right: c1 + r1 - 10,
   s2top: cy - r2 + 12, s2bot: cy + r2 - 12, s2left: c2 - r2 + 12, s2right: c2 + r2 - 12,
   dot1: cy - r1 + 12, dot2: cy - r2 + 16,
-  d1: d1, d2: (d1 * N).toFixed(2),
+  d1: d1, d2: (d1 * N).toFixed(3),
   ratioText: ratioText, mode: mode,
   rpmText: Math.round(rpm).toLocaleString('en-US'),
-  torqueText: torque.toFixed(1),
+  torqueText: torque.toLocaleString('en-US', { minimumFractionDigits: 1, maximumSignificantDigits: 4 }),
   speedPct: Math.min(100, rpm / 15000 * 100).toFixed(1),
   torquePct: Math.min(100, torque / 10 * 100).toFixed(1),
   svgLabel: 'Motor pulley with ' + t1 + ' teeth drives arm pulley with ' + t2 + ' teeth',
-  dec1: set({ t1: Math.max(10, t1 - 2) }), inc1: set({ t1: Math.min(30, t1 + 2) }),
-  dec2: set({ t2: Math.max(12, t2 - 6) }), inc2: set({ t2: Math.min(84, t2 + 6) }),
-  min1: t1 <= 10, max1: t1 >= 30, min2: t2 <= 12, max2: t2 >= 84
+  dec1: set({ t1: Math.max(10, t1 - 1) }), inc1: set({ t1: Math.min(2000, t1 + 1) }),
+  dec2: set({ t2: Math.max(10, t2 - 1) }), inc2: set({ t2: Math.min(2000, t2 + 1) }),
+  min1: t1 <= 10, max1: t1 >= 2000, min2: t2 <= 10, max2: t2 >= 2000
 };
 }
 // Keep bindings separate from rendered values so SVG elements and animations persist.
@@ -169,10 +173,22 @@ function render() {
     if (name) node.setAttribute(name, value);
     else node.textContent = value;
   }
+  for (const input of root.querySelectorAll('[data-teeth]')) {
+    input.value = state[input.dataset.teeth];
+  }
   for (const button of root.querySelectorAll('[data-action]')) {
     button.disabled = data[button.dataset.disabled];
     button.onclick = data[button.dataset.action];
   }
+}
+for (const input of root.querySelectorAll('[data-teeth]')) {
+  input.addEventListener('change', () => {
+    const value = input.valueAsNumber;
+    if (Number.isFinite(value)) {
+      state[input.dataset.teeth] = Math.max(10, Math.min(2000, Math.round(value)));
+    }
+    render();
+  });
 }
 render();
 </script>
