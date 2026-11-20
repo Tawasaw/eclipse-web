@@ -25,3 +25,4 @@ Thumbs.db
 
 # Python updater
 __pycache__/
+.cache/

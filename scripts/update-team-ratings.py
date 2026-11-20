@@ -133,13 +133,15 @@ def rate_team(team, participations):
             "eventsWithRecords": len(played), "bestQualificationRecord": best_record}
 
 
-def collect(numbers):
+def collect(numbers, cached_histories=None):
+    cached_histories = cached_histories if cached_histories is not None else {}
     metadata = batch_query([
         f"t{number}:teamByNumber(number:{number})" + "{number rookieYear activeSeasons awards{type event{" + EVENT_FIELDS + "}}}"
         for number in numbers])
     if set(metadata) != {f"t{number}" for number in numbers}:
         raise ValueError("FTCScout omitted requested teams")
     fields = []
+    histories = {}
     for number in numbers:
         team = metadata[f"t{number}"]
         if team is None:
@@ -149,14 +151,19 @@ def collect(numbers):
         for year in team["activeSeasons"]:
             if not RUBRIC["firstSeason"] <= year <= RUBRIC["lastSeason"]:
                 continue
+            alias = f"t{number}s{year}"
+            if year < RUBRIC["lastSeason"] and alias in cached_histories:
+                histories[alias] = cached_histories[alias]
+                continue
             stat_type = f"TeamEventStats{year}" + ("Trad" if year in (2020, 2021) else "")
             # Remote 2020/2021 events had no win/loss record and cannot earn win-based points.
             remote = f"... on TeamEventStats{year}Remote{{qualMatchesPlayed}}" if year in (2020, 2021) else ""
             fields.append(f"t{number}s{year}:teamByNumber(number:{number})" + "{" + f"events(season:{year})" + "{event{" + EVENT_FIELDS + "} stats{" + f"... on {stat_type}" + "{wins losses ties qualMatchesPlayed} " + remote + "}}}")
     print(f"Fetching {len(fields)} team-season histories for {len(numbers)} teams", flush=True)
-    histories = batch_query(fields)
-    if set(histories) != {field.split(":", 1)[0] for field in fields}:
+    fetched = batch_query(fields)
+    if set(fetched) != {field.split(":", 1)[0] for field in fields}:
         raise ValueError("FTCScout omitted requested team-season histories")
+    histories.update(fetched)
     ratings = {}
     for number in numbers:
         team = metadata[f"t{number}"]
@@ -170,16 +177,32 @@ def collect(numbers):
                     events.extend(history["events"])
         ratings[str(number)] = rate_team(team, events)
         print(f"{number}: {ratings[str(number)]['score']} — {ratings[str(number)]['reason']}", flush=True)
+    # Commit cached raw records only after every team has been scored successfully.
+    # Keep records for teams temporarily absent from the NorCal roster.
+    cached_histories.update({key: value for key, value in histories.items()
+                             if int(key.rsplit("s", 1)[1]) < RUBRIC["lastSeason"]})
     return ratings
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "src/data/team-ratings.json")
+    parser.add_argument("--cache", type=Path, default=ROOT / ".cache/team-history.json")
+    parser.add_argument("--refresh-history", action="store_true",
+                        help="Refetch completed seasons as well as current-season results")
     args = parser.parse_args()
     assignments = json.loads((ROOT / "src/data/qualifier-assignments.json").read_text())
     numbers = [team["number"] for team in assignments["teams"]]
-    ratings = collect(numbers)
+    cached_histories = {}
+    if args.cache.exists() and not args.refresh_history:
+        cache = json.loads(args.cache.read_text())
+        if cache.get("version") == 1:
+            cached_histories = cache["histories"]
+    ratings = collect(numbers, cached_histories)
+    args.cache.parent.mkdir(parents=True, exist_ok=True)
+    cache_temporary = args.cache.with_suffix(".tmp")
+    cache_temporary.write_text(json.dumps({"version": 1, "histories": cached_histories}) + "\n")
+    cache_temporary.replace(args.cache)
     payload = {"updatedAt": datetime.now(timezone.utc).isoformat(), "source": "https://ftcscout.org/api",
                "firstSeason": RUBRIC["firstSeason"], "lastSeason": RUBRIC["lastSeason"],
                "rubricVersion": RUBRIC["version"], "teams": ratings}

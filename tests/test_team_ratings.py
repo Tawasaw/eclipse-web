@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -97,16 +98,73 @@ class TeamRatingTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 ratings.collect([30618])
 
+    def test_cached_seasons_reused_but_current_season_refreshed(self):
+        cache = {"t30618s2025": {"events": [participation(3, 2)]}}
+        current = {"events": [participation(1, 4, season=2026)]}
+        with patch.object(ratings, "batch_query", side_effect=[
+                {"t30618": team()}, {"t30618s2026": current}]) as query:
+            result = ratings.collect([30618], cache)
+        self.assertEqual(result["30618"]["score"], 3)
+        self.assertNotIn("season:2025", " ".join(query.call_args_list[1].args[0]))
+        self.assertIn("season:2026", " ".join(query.call_args_list[1].args[0]))
+        self.assertNotIn("t30618s2026", cache)
+
+    def test_new_team_fetches_missing_history_and_retains_absent_teams(self):
+        cache = {"t524s2025": {"events": []}}
+        with patch.object(ratings, "batch_query", side_effect=[
+                {"t30618": team()},
+                {"t30618s2025": {"events": [participation(1, 4)]},
+                 "t30618s2026": {"events": []}}]):
+            ratings.collect([30618], cache)
+        self.assertIn("t30618s2025", cache)
+        self.assertIn("t524s2025", cache)
+        self.assertNotIn("t30618s2026", cache)
+
+    def test_partial_refresh_does_not_mutate_history_cache(self):
+        cache = {"t30618s2025": {"events": []}}
+        previous = json.dumps(cache)
+        with patch.object(ratings, "batch_query", side_effect=[{"t30618": team()}, {}]):
+            with self.assertRaises(ValueError):
+                ratings.collect([30618], cache)
+        self.assertEqual(json.dumps(cache), previous)
+
+    def test_disk_cache_round_trip_and_manual_history_refresh(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "ratings.json"
+            cache = Path(directory) / "cache/history.json"
+            history = {"t30618s2025": {"events": []}}
+            def collect(numbers, cached):
+                cached.update(history)
+                return {}
+            with patch("sys.argv", ["update", "--output", str(output), "--cache", str(cache)]), patch.object(
+                    ratings, "collect", side_effect=collect) as mocked:
+                ratings.main()
+                self.assertEqual(mocked.call_args.args[1], history)
+            self.assertEqual(json.loads(cache.read_text())["histories"], history)
+            with patch("sys.argv", ["update", "--output", str(output), "--cache", str(cache)]), patch.object(
+                    ratings, "collect", return_value={}) as mocked:
+                ratings.main()
+                self.assertEqual(mocked.call_args.args[1], history)
+            with patch("sys.argv", ["update", "--output", str(output), "--cache", str(cache),
+                                    "--refresh-history"]), patch.object(
+                    ratings, "collect", return_value={}) as mocked:
+                ratings.main()
+                self.assertEqual(mocked.call_args.args[1], {})
+
     def test_failed_refresh_keeps_previous_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "ratings.json"
+            cache = Path(directory) / "history.json"
+            previous_cache = '{"version": 1, "histories": {}}'
+            cache.write_text(previous_cache)
             previous = '{"updatedAt": "unchanged", "teams": {}}'
             output.write_text(previous)
-            with patch("sys.argv", ["update", "--output", str(output)]), patch.object(
+            with patch("sys.argv", ["update", "--output", str(output), "--cache", str(cache)]), patch.object(
                     ratings, "collect", side_effect=ValueError("Partial API response")):
                 with self.assertRaises(ValueError):
                     ratings.main()
             self.assertEqual(output.read_text(), previous)
+            self.assertEqual(cache.read_text(), previous_cache)
 
 
 if __name__ == "__main__":

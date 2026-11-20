@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      refresh_history:
+        description: Refetch all completed seasons to pick up historical corrections
+        type: boolean
+        default: false
   schedule:
     # 10:23 UTC is 2:23 AM PST / 3:23 AM PDT.
     - cron: '23 10 * * *'
@@ -52,12 +57,40 @@ jobs:
         timeout-minutes: 30
         run: python3 scripts/update-qualifiers.py
 
+      - name: Restore saved team ratings and completed-season history
+        id: ratings-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            src/data/team-ratings.json
+            .cache/team-history.json
+          key: ratings-v1-${{ hashFiles('scripts/update-team-ratings.py', 'src/data/team-rating-rubric.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ratings-v1-${{ hashFiles('scripts/update-team-ratings.py', 'src/data/team-rating-rubric.json') }}-
+
       - name: Refresh historical team ratings
+        if: github.event_name != 'push'
         timeout-minutes: 20
-        run: python3 scripts/update-team-ratings.py
+        env:
+          REFRESH_HISTORY: ${{ inputs.refresh_history }}
+        run: |
+          if [ "$REFRESH_HISTORY" = "true" ]; then
+            python3 scripts/update-team-ratings.py --refresh-history
+          else
+            python3 scripts/update-team-ratings.py
+          fi
 
       - name: Build
         run: npm run build
+
+      - name: Save refreshed team ratings and completed-season history
+        if: github.event_name != 'push'
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            src/data/team-ratings.json
+            .cache/team-history.json
+          key: ${{ steps.ratings-cache.outputs.cache-primary-key }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

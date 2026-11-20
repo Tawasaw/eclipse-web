@@ -21,15 +21,31 @@ The existing **Deploy site to GitHub Pages** workflow runs daily at 10:23 UTC
 delay scheduled runs. Once these changes are on `main`, no additional token
 or service is needed. The workflow can also be run manually from GitHub Actions.
 
-Every deployment refreshes the data before building, including scheduled,
-manual, and push runs. This prevents a website push from restoring an older
-checked-in snapshot. Snapshots are included in the Pages artifact; the workflow
-does not create commits or push changes to the repository. Local builds use the
-checked-in snapshot and do not require network access to NorCal.
+Every deployment refreshes NorCal assignments before building, including
+scheduled, manual, and push runs. Snapshots are included in the Pages artifact;
+the workflow does not create commits or push changes to the repository. Local
+builds use the checked-in snapshots and do not require network access.
 
-The same workflow refreshes historical ratings from FTCScout after fetching
-the current NorCal roster. A history refresh failure also stops deployment,
-preserving the previous published page and its successful refresh timestamps.
+Push deployments restore the latest compatible ratings snapshot from GitHub
+Actions cache and skip FTCScout entirely. If the cache is missing or evicted,
+they use the checked-in ratings snapshot with its original refresh timestamp.
+New teams without a saved rating appear as Unrated until the next refresh.
+Scheduled and manual runs refresh ratings after fetching the current NorCal
+roster. A refresh failure stops deployment, preserving the previous published
+page and its successful refresh timestamps.
+
+Successful ratings refreshes and builds save both calculated ratings and raw
+completed-season records in Actions cache. Each refresh uses a new cache key;
+later deployments restore the most recent compatible key. Changes to the
+ratings script or rubric invalidate the CI cache. The first refresh after a
+cache miss fetches all history again; subsequent runs reuse completed seasons.
+Cache storage is an optimization, so the checked-in snapshot remains the offline
+fallback.
+
+To pick up corrections to completed seasons, run the workflow manually with
+**Refetch all completed seasons to pick up historical corrections** checked.
+Without that option, nightly and manual updates fetch team metadata/awards,
+current-season results, and any missing completed-season records for new teams.
 
 The updater uses Python's standard library, requests pages one at a time,
 pauses between teams, and retries transient network errors. It collects only
@@ -49,6 +65,10 @@ python3 scripts/update-team-ratings.py
 python3 -m unittest discover -s tests -v
 npm run build
 ```
+
+The ratings updater stores raw completed-season records in the ignored
+`.cache/team-history.json`. Use `--refresh-history` to refetch all past results,
+or `--cache /path/to/history.json` to select another local cache file.
 
 Review `src/data/qualifier-assignments.json` before committing. This JSON is the
 offline snapshot used by regular builds. The first collection can take several
@@ -83,7 +103,9 @@ remain available. The page also includes the complete scoring rubric.
 `scripts/update-team-ratings.py` batches public GraphQL queries to
 `https://api.ftcscout.org/graphql`. It fetches metadata, alliance awards, and
 event qualification records for the available 2019–2026 season starts. No API
-key or extra Python packages are needed. Requests run sequentially with a pause
+key or extra Python packages are needed. The rubric's `lastSeason` is the active
+season: its results are always fetched, while earlier seasons are cached.
+Review this setting at season rollover. Requests run sequentially with a pause
 between small batches. A failed or partial response cannot replace
 `src/data/team-ratings.json`.
 
