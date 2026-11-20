@@ -107,6 +107,7 @@ a:hover {
 
 .site-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -454,6 +455,59 @@ section {
   margin-top: 8px;
 }
 
+/* — software — */
+
+.software-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.software-link {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 28px;
+  border: 2px solid var(--color-divider);
+  color: var(--color-text);
+}
+
+.software-link h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.software-link span {
+  margin-top: auto;
+  color: var(--color-accent-700);
+}
+
+.software-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 7 / 6;
+  object-fit: contain;
+  background: #000;
+}
+
+.software-link:hover {
+  border-color: var(--color-accent);
+}
+
+.software-link:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
 /* — donate — */
 
 .donate {
@@ -579,6 +633,10 @@ section {
 /* — responsive — */
 
 @media (max-width: 900px) {
+  .software {
+    scroll-margin-top: 160px;
+  }
+
   .roster {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -628,6 +686,10 @@ section {
   }
 
   .roster {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .software-list {
     grid-template-columns: minmax(0, 1fr);
   }
 
