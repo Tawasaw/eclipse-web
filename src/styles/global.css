@@ -477,7 +477,7 @@ section {
   color: var(--color-text);
 }
 
-.software-link h3 {
+.software-link h2 {
   margin: 0;
   font-family: var(--font-heading);
   font-size: 28px;

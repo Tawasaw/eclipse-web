@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+
+const pageTitle = "Software · Eclipse 30618";
+const pageDescription = "Explore software from Eclipse 30618: Virtual Driver Hub and Servo Programmer.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://eclipse30618.com/software/" />
+    <meta property="og:image" content="https://eclipse30618.com/eclipse-logo.png" />
+    <meta name="theme-color" content="#faf9f4" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#14120f" : "#faf9f4");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Eclipse 30618 home">
+          <span class="brand-disc" aria-hidden="true"></span>
+          <span class="brand-name">ECLIPSE 30618</span>
+        </a>
+        <a href="/">Team website</a>
+      </header>
+      <main>
+      <section id="software" class="software section-rule" aria-labelledby="software-title">
+        <div class="section-head">
+          <h1 id="software-title" class="section-title">Software</h1>
+        </div>
+        <ul class="software-list">
+          <li>
+            <a class="software-link" href="https://github.com/Tawasaw/EclipseDesktopStation" target="_blank" rel="noreferrer">
+              <h2>Virtual Driver Hub</h2>
+              <img class="software-screenshot" src="/software/virtual-driver-hub.jpg" alt="Virtual Driver Hub showing robot connection, OpMode controls, and telemetry" width="2784" height="2384" loading="lazy" decoding="async" />
+              <span>View on GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a class="software-link" href="https://github.com/Tawasaw/EclipseSwyftServoProgrammer" target="_blank" rel="noreferrer">
+              <h2>Servo Programmer</h2>
+              <img class="software-screenshot" src="/software/servo-programmer.jpg" alt="Servo Programmer showing servo parameters, travel range, and programming controls" width="1600" height="1321" loading="lazy" decoding="async" />
+              <span>View on GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>ECLIPSE 30618 &mdash; FTC</span>
+        <span>TEAM@ECLIPSE30618.COM</span>
+      </footer>
+    </div>
+
+  </body>
+</html>
