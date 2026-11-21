@@ -459,11 +459,19 @@ section {
 
 .software-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 24px;
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.software-list > li {
+  grid-column: span 2;
+}
+
+.software-list > li:nth-last-child(-n + 2) {
+  grid-column: span 3;
 }
 
 .software-link {
@@ -691,6 +699,11 @@ section {
 
   .software-list {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .software-list > li,
+  .software-list > li:nth-last-child(-n + 2) {
+    grid-column: 1;
   }
 
   .contact-row {
